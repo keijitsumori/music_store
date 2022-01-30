@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-4 my-5">
+      <div><%= image_tag @item.image, size: "300x300" %></div>
+    </div>
+
+    <div class="col-5 my-5">
+
+      <div class="h1"><%= @item.name %></div>
+      <div class="h5"><%= @item.introduction %></div>
+      <div class="h3 mt-5"><span>¥</span><%= @item.with_tax_price %><span class="h6">(税込)</span></div>
+      
+    </div>
+
+  </div>
+</div>
