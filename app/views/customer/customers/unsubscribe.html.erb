@@ -1,0 +1,18 @@
+<div class='container'>
+  <div class='row'>
+    <div class="mx-auto">
+
+      <h2 class="mx-auto mt-5">　本当に退会しますか</h2>
+
+      <div class="mx-auto mt-5">　　　　　退会すると、会員登録情報や</div>
+      <div class="mx-auto">　　これまでの購入履歴が閲覧できなくなります。</div>
+      <div class="mx-auto">退会する場合は、「退会する」をクリックしてください。</div>
+
+      <div class="mx-auto mt-5">
+        <%= link_to "退会しない", customers_my_page_path, class: "m-3 btn btn-primary" %>
+        <%= link_to "退会する", customers_withdraw_path, method: :patch, data: { confirm: "Are you sure?" }, class: "ml-5 btn btn-danger" %>
+      </div>
+
+    </div>
+  </div>
+</div>

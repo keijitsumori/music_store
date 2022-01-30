@@ -29,7 +29,7 @@ class Customer::SessionsController < Devise::SessionsController
     @customer = Customer.find_by(email: params[:customer][:email])
     return if !@customer
     if @customer
-      if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
+      if (@customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == true))
         redirect_to new_customer_registration_path, notice: "退会済みです。"
       end
     end
