@@ -1,11 +1,37 @@
-<h2>Sign up</h2>
+<div class='container'>
+  <div class='row'>
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "customers/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<h2 class="m-2">新規登録</h2>
+
+<%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
+  <%= render "customer/shared/error_messages", resource: resource %>
+  
+  <div class="field m-2">
+    <%= f.label :last_name, "姓　"%><%= f.text_field :last_name, autofocus: true %>
+    <%= f.label :first_name, "　名　"%><%= f.text_field :first_name, autofocus: true %>
+  </div>
+  
+  <div class="field m-2">
+    <%= f.label :last_name_kana_name,"セイ" %><%= f.text_field :last_name_kana, autofocus: true %>
+    <%= f.label :first_name_kana, "　メイ" %><%= f.text_field :first_name_kana, autofocus: true %>
+  </div>
+
+  <div class="field m-2">
+    <%= f.label :email, "メールアドレス　" %><%= f.email_field :email, autofocus: true %>
+  </div>
+  
+  <div class="field m-2">
+    <%= f.label :postal_code, "郵便番号　　　　" %><%= f.text_field :postal_code, autofocus: true %>
+  </div>
+  
+  <div class="field m-2">
+    <%= f.label :address, "住所　　　　　　" %><%= f.text_field :address, autofocus: true %>
+  </div>
+  
+  <div class="field m-2">
+    <%= f.label :telephone_number, "電話番号　　　　" %><%= f.text_field :telephone_number, autofocus: true %>
   </div>
 
   <div class="field">
@@ -22,8 +48,13 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録", class: "btn btn-success m-3" %>
   </div>
 <% end %>
 
-<%= render "customer/shared/links" %>
+<h2>既に登録済みの方</h2>
+<%= link_to "こちら", new_session_path(resource_name) %><span> からログインしてください </span>
+
+    </div>
+  </div>
+</div>
