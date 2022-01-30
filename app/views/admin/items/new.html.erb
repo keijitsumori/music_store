@@ -1,0 +1,40 @@
+<div class='container'>
+  <div class='row'>
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <h2 class="my-5">商品新規登録</h2>
+        
+        <%= form_with model: @item, url: "/admin/items", local: true do |f| %>
+        
+          <div class="field m-2">
+            <%= f.label :image, "商品画像　　　　"%><%= f.file_field :image, accept: "image/*" %>
+          </div>
+        
+          <div class="field m-2">
+            <%= f.label :name,"商品名　　　　　" %><%= f.text_field :name, autofocus: true %>
+          </div>
+        
+          <div class="field m-2">
+            <%= f.label :introduction, "商品説明　　　　" %><%= f.text_area :introduction, autofocus: true %>
+          </div>
+        
+          <div class="field m-2">
+            <%= f.label :genre_id, "ジャンル　　　　" %><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+          </div>
+        
+          <div class="field m-2">
+            <%= f.label :price, "税込価格　　　　" %><%= f.number_field :price, autofocus: true %>
+          </div>
+        
+          <div class="field m-2">
+            <%= f.label :is_active, "販売ステータス", class: "mr-3" %><%= f.radio_button :is_active, :true, checked: true %> <span class="text-secondary mr-3">販売中</span>
+            <%= f.radio_button :is_active, :false %> <span class="text-secondary">販売停止中</span>
+          </div>
+        
+          <div class="actions">
+            <%= f.submit "新規登録", class: "btn btn-success m-3" %>
+          </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>
