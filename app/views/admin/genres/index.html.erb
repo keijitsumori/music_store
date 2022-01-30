@@ -1,0 +1,32 @@
+<div class='container'>
+  <div class='row'>
+    <div class="mx-auto col-11 col-lg-8 col-xl-6">
+
+        <nav class="navbar navbar-light bg-light m-auto">
+          <div class="container-fluid">ジャンル一覧・追加</div>
+        </nav>
+
+        <%= form_with model: @genre, url: "/admin/genres",local: true do |f| %>
+        <%= f.label :name, "ジャンル名"%><%= f.text_field :name, autofocus: true, class: "ml-3" %>
+        <%= f.submit "新規登録", class: "btn btn-success m-3" %>
+        <% end %>
+        <div></div>
+
+        <table class="table m-3">
+          <tbody>
+            <tr>
+              <th scope="row">ジャンル</th>
+              <td></td>
+            </tr>
+            <% @genres.each do |genre| %>
+            <tr>
+              <th scope="row"><%= genre.name %></th>
+              <td><%= link_to '編集する', edit_admin_genre_path(genre), class: "btn btn-success" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+    </div>
+  </div>
+</div>
