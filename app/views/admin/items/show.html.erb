@@ -11,6 +11,7 @@
       <div class="h5"><%= @item.introduction %></div>
       <div class="h3 mt-5"><span>¥</span><%= @item.with_tax_price %><span class="h6">(税込)</span></div>
       
+      <div><%= link_to '編集する', edit_admin_item_path, class: "btn btn-success m-2" %></div>
     </div>
 
   </div>
