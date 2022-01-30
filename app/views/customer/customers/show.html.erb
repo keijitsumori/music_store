@@ -1,0 +1,51 @@
+<div class='container'>
+  <div class='row'>
+    <div class="mx-auto col-11 col-lg-8 col-xl-6">
+
+        <nav class="navbar navbar-light bg-light m-auto">
+          <div class="container-fluid">マイページ</div>
+        </nav>
+
+        <span class="m-2 lead">登録情報</span>
+        <%= link_to '編集する', customers_edit_path, class: "btn btn-success m-2" %>
+        <div></div>
+
+        <table class="table m-3 table-bordered">
+          <tbody>
+            <tr>
+              <th scope="row">名前</th>
+              <td colspan="3"><%= current_customer.last_name %> <%= current_customer.first_name %></td>
+            </tr>
+            <tr>
+              <th scope="row">カナ</th>
+              <td colspan="3"><%= current_customer.last_name_kana %> <%= current_customer.first_name_kana %></td>
+            </tr>
+            <tr>
+              <th scope="row">郵便番号</th>
+              <td colspan="3"><%= current_customer.postal_code %></td>
+            </tr>
+            <tr>
+              <th scope="row">住所</th>
+              <td colspan="3"><%= current_customer.address %></td>
+            </tr>
+            <tr>
+              <td scope="row">電話番号</td>
+              <td colspan="3"><%= current_customer.telephone_number %></td>
+            </tr>
+            <tr>
+              <td scope="row">メールアドレス</td>
+              <td colspan="3"><%= current_customer.email %></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <span class="m-2 lead">配送先　</span>
+        <%= link_to '一覧を見る', addresses_path, class: "btn btn-primary m-2" %>
+
+        <div></div>
+
+        <span class="m-2 lead">注文履歴</span>
+        <%= link_to '一覧を見る', customers_edit_path, class: "btn btn-primary m-2" %>
+    </div>
+  </div>
+</div>
