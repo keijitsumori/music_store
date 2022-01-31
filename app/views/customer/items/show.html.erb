@@ -1,25 +1,8 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-3">
-      <table class="table table-bordered my-5">
-        <thead>
-          <tr>
-            <th scope="col">ジャンル検索</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @genres.each do |genre| %>
-          <tr>
-            <th scope="row"><%= genre.name %></th>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
     <div class="col-4 my-5">
-      <div><%= attachment_image_tag @item, :image, :fill, 300, 240 %></div>
+      <div><%= image_tag @item.image, size: "300x300" %></div>
     </div>
 
     <div class="col-5 my-5">
