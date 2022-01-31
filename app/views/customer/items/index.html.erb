@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <table class="table table-bordered my-5">
+        <thead>
+          <tr>
+            <th scope="col">ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <th>
+              <%= form_with url: items_path, method: :get, local: true do |form| %>
+                <%= form.hidden_field :genre_id, value: genre.id %>
+                <%= form.submit genre.name, name: nil, class: "btn btn-link text-dark" %>
+              <% end %>
+            </th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <% @items.each do |item| %>
+      <div class="col-3 ml-2 my-4">
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.image, size: "200x200" %>
+        <% end %>
+        <div class="my-2"></div>
+        <%= link_to item.name, item_path(item), class: "text-dark" %>
+        <div class="my-2"></div>
+        <%= item.with_tax_price %>円(税込)
+      </div>
+    <% end %>
+
+  </div>
+</div>
