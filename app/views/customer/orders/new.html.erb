@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-2 h4 bg-light m-3">注文情報入力</div>
+  </div>
+
+  <%= form_with model: @order, url: orders_comfirm_path, method: :post, local: true do |f| %>
+
+  <div class="row mt-2">
+    <div class="ml-5 font-weight-bold h5">支払い方法</div>
+  </div>
+  <div class="row mx-5">
+    <div>
+      <%= f.radio_button :payment_method, 0, checked: true %><%= f.label :payment_method, Order.payment_methods_i18n[:credit_card], class: "ml-3" %>
+      <div></div>
+      <%= f.radio_button :payment_method, 1 %><%= f.label :payment_method, Order.payment_methods_i18n[:transfer], class: "ml-3" %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="ml-5 font-weight-bold h5">お届け先</div>
+  </div>
+  <div class="row mx-5">
+    <div>
+      <%= f.radio_button :address_option, 0, checked: true %><span class="ml-3">ご自身の住所</span></br>
+      <div class="mt-2 mx-4 mb-4">
+        <%= '〒' + current_customer.postal_code + ' ' + current_customer.address %></br>
+        <%= current_customer.last_name + current_customer.first_name %>
+      </div>
+      <%= f.radio_button :address_option, 1 %><span class="ml-3">登録住所から選択</span>
+      <div class="mt-2 mx-4 mb-4">
+        <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %>
+      </div>
+      <%= f.radio_button :address_option, 2 %><span class="ml-3">新しいお届け先</span>
+      <div class="mt-2 mx-4 mb-4">
+        <div class="field m-2">
+            <%= f.label :postal_code, "郵便番号（ハイフンなし）　" %><%= f.text_field :postal_code, autofocus: true %>
+          </div>
+
+          <div class="field m-2">
+            <%= f.label :address, "住所　　　　　　　　　　　" %><%= f.text_field :address, autofocus: true %>
+          </div>
+
+           <div class="field m-2">
+            <%= f.label :name, "宛名　　　　　　　　　　　" %><%= f.text_field :name, autofocus: true %>
+          </div>
+      </div>
+
+      <div><%= f.submit '確認画面へ進む', class: "mx-auto btn btn-primary" %></div>
+    </div>
+
+  <% end %>
+</div>
