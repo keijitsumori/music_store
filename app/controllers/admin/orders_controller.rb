@@ -18,10 +18,10 @@ class Admin::OrdersController < ApplicationController
             order_details.each do |order_detail|
                 order_detail.update(making_status: 1)
             end
-            redirect_to admin_orders_path
+            redirect_to admin_path
         else
             @order.update(status: params[:order][:status].to_i)
-            redirect_to admin_orders_path
+            redirect_to admin_path
         end
     end
 
