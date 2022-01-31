@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-3">
+      <table class="table table-bordered my-5">
+        <thead>
+          <tr>
+            <th scope="col">ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <th scope="row"><%= genre.name %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-4 my-5">
+      <div><%= attachment_image_tag @item, :image, :fill, 300, 240 %></div>
+    </div>
+
+    <div class="col-5 my-5">
+
+      <div class="h1"><%= @item.name %></div>
+      <div class="h5"><%= @item.introduction %></div>
+      <div class="h3 mt-5"><span>¥</span><%= @item.with_tax_price %><span class="h6">(税込)</span></div>
+
+      <div class="my-5">
+        <%= form_with model: @cart_item, local: true do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.select :amount, *[1..10], { include_blank: '個数選択'} %>
+          <%= f.submit "カートに入れる", class: "btn btn-success mx-3" %>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
