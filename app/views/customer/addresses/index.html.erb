@@ -7,16 +7,18 @@
 
         <%= form_with model: @address, local: true do |f| %>
 
-          <div class="form-group row">
-            <%= f.label :postal_code, "郵便番号（ハイフンなし）　",class: "col-sm-3 col-form-label" %><%= f.text_field :postal_code, autofocus: true, class: "col-sm-7 form-control form-control-sm" %>
+        <div class="form-group row">
+          <div class="field m-2">
+            <%= f.label :postal_code, "郵便番号（ハイフンなし）　", class: "" %><%= f.text_field :postal_code, autofocus: true %>  
           </div>
 
           <div class="field m-2">
-            <%= f.label :address, "住所　　　　　　　　　　　" %><%= f.text_field :address, autofocus: true %>
+            <%= f.label :address, "住所　" %><%= f.text_field :address, autofocus: true %>
           </div>
 
            <div class="field m-2">
             <%= f.label :name, "宛名　　　　　　　　　　　" %><%= f.text_field :name, autofocus: true %>
+          </div>
           </div>
 
           <span class="actions">
