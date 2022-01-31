@@ -39,7 +39,7 @@
             <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
-            <th scope="col">製作ステータス</th>
+            <th scope="col">入荷状況</th>
           </tr>
         </thead>
         <% @order_details.each do |order_detail| %>
@@ -62,15 +62,13 @@
     </div>
 
     <div class="col">
-      <div class=h6>合計金額</div>
       <div class=h6>送料</div>
       <div class=h6>請求金額合計</div>
     </div>
 
     <div class="col">
-      <div><%= @order.total_payment %>円</div>
       <div><%= @order.shipping_cost %>円</div>
-      <div><%= @order.total_payment + @order.shipping_cost %>円</div>
+      <div><%= @order.total_payment %>円</div>
     </div>
   </div>
 

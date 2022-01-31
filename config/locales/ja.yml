@@ -59,13 +59,13 @@ ja:
       status:
         waiting: '入金待ち'
         comfirm: '入金確認'
-        in_production: '製作中'
+        in_production: '入荷中'
         ready_to_ship: '発送準備中'
         shipped: '発送済み'
 
     order_detail:
       making_status:
-        couldnt_make: '製作不可'
-        waiting_for_production: '製作待ち'
-        in_production: '製作中'
-        completed: '製作終了'
+        couldnt_make: '入荷不可'
+        waiting_for_production: '入荷待ち'
+        in_production: '入荷中'
+        completed: '入荷終了'
