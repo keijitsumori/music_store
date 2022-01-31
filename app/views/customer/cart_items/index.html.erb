@@ -20,7 +20,7 @@
             <% total_cost = 0 %>
             <% @cart_items.each do |cart_item| %>
               <tr>
-                <th scope="row"><%= attachment_image_tag cart_item.item, :image, :fill, 50, 40 %><span class="mx-3"><%= cart_item.item.name %></span></th>
+                <th scope="row"><%= image_tag cart_item.item.image, size: "50x50" %><span class="mx-3"><%= cart_item.item.name %></span></th>
                 <td><%= cart_item.item.with_tax_price %></td>
                 <td>
                   <%= form_with model: cart_item, local: true do |f| %>
